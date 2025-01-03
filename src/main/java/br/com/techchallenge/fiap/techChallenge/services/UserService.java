@@ -59,12 +59,10 @@ public class UserService {
         logger.info("Creating new user: " + user.type());
         logger.info("Creating new user: " + user);
 
-        if(user.type().equalsIgnoreCase("client")) {
-            this.clientRepository.save(new Client(user.nome(), user.email(), user.senha(), user.login(), user.endereco()));
-        } else if (user.type().equalsIgnoreCase("restaurante_owner")) {
-            this.restaurantOwnerRepository.save(new RestaurantOwner(user.nome(), user.email(), user.senha(), user.login(), user.endereco()));
-        } else {
-            throw new UnkownType();
+        switch(user.type()) {
+            case client -> this.clientRepository.save(new Client(user.nome(), user.email(), user.senha(), user.login(), user.endereco()));
+            case restaurant_owner -> this.restaurantOwnerRepository.save(new RestaurantOwner(user.nome(), user.email(), user.senha(), user.login(), user.endereco()));
+            default -> throw new UnkownType();
         }
     }
 

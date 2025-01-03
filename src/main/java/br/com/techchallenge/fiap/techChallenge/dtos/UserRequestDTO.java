@@ -1,5 +1,7 @@
 package br.com.techchallenge.fiap.techChallenge.dtos;
 
+import br.com.techchallenge.fiap.techChallenge.enums.UserEnum;
+import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.validation.constraints.NotNull;
 
 public record UserRequestDTO(
@@ -12,7 +14,8 @@ public record UserRequestDTO(
         @NotNull
         String senha,
         String endereco,
+        @Schema(description = "'client' ou 'restaurant_owner'")
         @NotNull
-        String type
+        UserEnum type
 ) {
 }

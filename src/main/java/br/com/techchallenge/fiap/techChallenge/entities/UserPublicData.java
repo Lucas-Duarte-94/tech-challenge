@@ -9,6 +9,7 @@ public class UserPublicData {
     private String login;
     private Date ultimaAlteracao;
     private String endereco;
+    private String type;
 
     public UserPublicData(User user) {
         this.id = user.getId();
@@ -17,6 +18,11 @@ public class UserPublicData {
         this.login = user.getLogin();
         this.ultimaAlteracao = user.getUltimaAlteracao();
         this.endereco = user.getEndereco();
+        this.type = user.getClass().getSimpleName();
+    }
+
+    public String getType() {
+        return type;
     }
 
     public String getId() {
