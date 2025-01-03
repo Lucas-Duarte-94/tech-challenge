@@ -1,5 +1,5 @@
 CREATE TABLE restaurant_owner (
-    id BIGINT AUTO_INCREMENT PRIMARY KEY,
+    id VARCHAR(36) NOT NULL PRIMARY KEY,
     nome VARCHAR(255) NOT NULL ,
     email VARCHAR(255),
     senha VARCHAR(255) NOT NULL ,
@@ -9,7 +9,7 @@ CREATE TABLE restaurant_owner (
 );
 
 CREATE TABLE client (
-    id BIGINT AUTO_INCREMENT PRIMARY KEY,
+    id VARCHAR(36) NOT NULL PRIMARY KEY,
     nome VARCHAR(255) NOT NULL ,
     email VARCHAR(255),
     senha VARCHAR(255) NOT NULL ,

@@ -52,7 +52,7 @@ public class UserController {
     @PutMapping("/{id}")
     public ResponseEntity<Void> updateUser(
             @RequestBody UserUpdateRequestDTO userDTO,
-            @PathVariable Long id
+            @PathVariable String id
     ) {
         this.userService.updateUser(userDTO.nome(), userDTO.email(), userDTO.endereco(), id);
 
@@ -70,7 +70,7 @@ public class UserController {
 
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> deleteUser(
-            @PathVariable Long id
+            @PathVariable String id
     ) {
         this.userService.deleteUser(id);
 

@@ -33,7 +33,7 @@ public class UserRepositoryImp implements UserRepository {
         )
         .query((rs, rowNum) -> {
             String type = rs.getString("type");
-            Long userId = rs.getLong("id");
+            String userId = rs.getString("id");
             String nome = rs.getString("nome");
             String email = rs.getString("email");
             String senha = rs.getString("senha");
@@ -51,7 +51,7 @@ public class UserRepositoryImp implements UserRepository {
     }
 
     @Override
-    public Optional<User> getById(Long id) {
+    public Optional<User> getById(String id) {
         return this.jdbcClient.sql(
                 "SELECT c.id, c.nome, c.email, c.senha, c.login, c.ultima_alteracao, c.endereco, 'client' AS type  FROM client c " +
                 "WHERE c.id = :id " +
@@ -62,7 +62,7 @@ public class UserRepositoryImp implements UserRepository {
                 .param("id", id)
                 .query((rs, rowNum) -> {
                     String type = rs.getString("type");
-                    Long userId = rs.getLong("id");
+                    String userId = rs.getString("id");
                     String nome = rs.getString("nome");
                     String email = rs.getString("email");
                     String senha = rs.getString("senha");
@@ -94,7 +94,7 @@ public class UserRepositoryImp implements UserRepository {
                 .param("login", login)
                 .query((rs, rowNum) -> {
                     String type = rs.getString("type");
-                    Long userId = rs.getLong("id");
+                    String userId = rs.getString("id");
                     String nome = rs.getString("nome");
                     String email = rs.getString("email");
                     String senha = rs.getString("senha");

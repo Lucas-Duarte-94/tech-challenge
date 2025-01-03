@@ -7,7 +7,7 @@ public class RestaurantOwner extends User {
         super();
     }
 
-    public RestaurantOwner(Long id, String nome, String email, String senha, String login, Date ultimaAlteracao, String endereco) {
+    public RestaurantOwner(String id, String nome, String email, String senha, String login, Date ultimaAlteracao, String endereco) {
         super(id, nome, email, senha, login, ultimaAlteracao, endereco);
     }
 

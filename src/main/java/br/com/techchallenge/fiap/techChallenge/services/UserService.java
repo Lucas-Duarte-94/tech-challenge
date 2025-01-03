@@ -68,7 +68,7 @@ public class UserService {
         }
     }
 
-    public void updateUser(String nome, String email, String endereco, Long id) {
+    public void updateUser(String nome, String email, String endereco, String id) {
         var user = this.userRepository.getById(id).orElseThrow(() -> new UserNotFoundException(id));
 
         logger.info(String.valueOf(user));
@@ -80,7 +80,7 @@ public class UserService {
         }
     }
 
-    public void deleteUser(Long id) {
+    public void deleteUser(String id) {
         User user = this.userRepository.getById(id).orElseThrow(UserNotFoundException::new);
 
         if(user instanceof Client) {

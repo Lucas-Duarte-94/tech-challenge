@@ -17,8 +17,8 @@ public class ClientRepositoryImp implements ClientRepository {
     @Override
     public void save(User user) {
         this.jdbcClient.sql(
-                "INSERT INTO client (nome, email, login, senha, endereco, ultima_alteracao) " +
-                "VALUES (:nome, :email, :login, :senha, :endereco, :ultima_alteracao)"
+                "INSERT INTO client (id, nome, email, login, senha, endereco, ultima_alteracao) " +
+                "VALUES (RANDOM_UUID(), :nome, :email, :login, :senha, :endereco, :ultima_alteracao)"
                     )
                 .param("nome", user.getNome())
                 .param("email", user.getEmail())
@@ -30,7 +30,7 @@ public class ClientRepositoryImp implements ClientRepository {
     }
 
     @Override
-    public void update(String nome, String email, String endereco, Long id) {
+    public void update(String nome, String email, String endereco, String id) {
         this.jdbcClient.sql(
                         "UPDATE client SET nome = :nome, email = :email, endereco = :endereco, ultima_alteracao = :date WHERE id = :id"
                 ).param("nome", nome)
@@ -42,14 +42,14 @@ public class ClientRepositoryImp implements ClientRepository {
     }
 
     @Override
-    public void delete(Long id) {
+    public void delete(String id) {
         this.jdbcClient.sql(
                 "DELETE FROM client WHERE id = :id"
         ).param("id", id).update();
     }
 
     @Override
-    public void updatePassword(Long id, String senha) {
+    public void updatePassword(String id, String senha) {
         this.jdbcClient.sql(
                         "UPDATE client SET senha = :senha WHERE id = :id"
                 )

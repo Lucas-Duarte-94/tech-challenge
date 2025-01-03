@@ -3,7 +3,7 @@ package br.com.techchallenge.fiap.techChallenge.entities;
 import java.util.Date;
 
 public class UserPublicData {
-    private Long id;
+    private String id;
     private String nome;
     private String email;
     private String login;
@@ -19,7 +19,7 @@ public class UserPublicData {
         this.endereco = user.getEndereco();
     }
 
-    public Long getId() {
+    public String getId() {
         return id;
     }
 

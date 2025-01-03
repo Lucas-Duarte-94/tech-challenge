@@ -3,7 +3,7 @@ package br.com.techchallenge.fiap.techChallenge.entities;
 import java.util.Date;
 
 public abstract class User {
-    private Long id;
+    private String id;
     private String nome;
     private String email;
     private String senha;
@@ -13,7 +13,7 @@ public abstract class User {
 
     public User() {}
 
-    public User(Long id, String nome, String email, String senha, String login, Date ultimaAlteracao, String endereco) {
+    public User(String id, String nome, String email, String senha, String login, Date ultimaAlteracao, String endereco) {
         this.id = id;
         this.nome = nome;
         this.email = email;
@@ -31,7 +31,7 @@ public abstract class User {
         this.endereco = endereco;
     }
 
-    public Long getId() {
+    public String getId() {
         return id;
     }
 
