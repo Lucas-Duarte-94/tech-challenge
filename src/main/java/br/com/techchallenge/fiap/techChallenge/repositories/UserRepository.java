@@ -9,7 +9,4 @@ public interface UserRepository {
     List<User> getAll();
     Optional<User> getById(Long id);
     Optional<User> getByLogin(String login);
-    Integer save(User user);
-    Integer update(User user);
-    Integer delete(User user);
 }

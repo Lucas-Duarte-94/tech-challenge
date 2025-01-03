@@ -11,6 +11,8 @@ public abstract class User {
     private Date ultimaAlteracao;
     private String endereco;
 
+    public User() {}
+
     public User(Long id, String nome, String email, String senha, String login, Date ultimaAlteracao, String endereco) {
         this.id = id;
         this.nome = nome;
@@ -18,6 +20,14 @@ public abstract class User {
         this.senha = senha;
         this.login = login;
         this.ultimaAlteracao = ultimaAlteracao;
+        this.endereco = endereco;
+    }
+
+    public User(String nome, String email, String senha, String login, String endereco) {
+        this.nome = nome;
+        this.email = email;
+        this.senha = senha;
+        this.login = login;
         this.endereco = endereco;
     }
 

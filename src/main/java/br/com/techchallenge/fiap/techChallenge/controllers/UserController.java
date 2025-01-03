@@ -1,9 +1,14 @@
 package br.com.techchallenge.fiap.techChallenge.controllers;
 
+import br.com.techchallenge.fiap.techChallenge.dtos.UserChangePasswordRequestDTO;
+import br.com.techchallenge.fiap.techChallenge.dtos.UserLoginRequestDTO;
+import br.com.techchallenge.fiap.techChallenge.dtos.UserRequestDTO;
+import br.com.techchallenge.fiap.techChallenge.dtos.UserUpdateRequestDTO;
 import br.com.techchallenge.fiap.techChallenge.entities.User;
-import br.com.techchallenge.fiap.techChallenge.mappers.UserPublicData;
-import br.com.techchallenge.fiap.techChallenge.repositories.UserRepository;
+import br.com.techchallenge.fiap.techChallenge.entities.UserPublicData;
 import br.com.techchallenge.fiap.techChallenge.services.UserService;
+import jakarta.websocket.server.PathParam;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -18,19 +23,57 @@ public class UserController {
         this.userService = userService;
     }
 
-//    @GetMapping
-//    public ResponseEntity<List<User>> getUsers() {
-//        List<User> users = this.userService.;
-//        return ResponseEntity.ok().body(users);
-//    }
+    @GetMapping
+    public ResponseEntity<List<UserPublicData>> getUsers() {
+        List<UserPublicData> users = this.userService.getAllUsers();
+        return ResponseEntity.ok().body(users);
+    }
 
     @PostMapping("/login")
     public ResponseEntity<UserPublicData> login(
-            @RequestBody String login,
-            @RequestBody String senha
-    ) {
-        UserPublicData user = this.userService.login(login, senha);
+            @RequestBody UserLoginRequestDTO loginRequest
+        ) {
+        UserPublicData user = this.userService.login(loginRequest.login(), loginRequest.senha());
 
         return ResponseEntity.ok().body(user);
+    }
+
+    @PostMapping
+    public ResponseEntity<Void> createUser(
+            @RequestBody UserRequestDTO user
+            ) {
+        this.userService.createUser(user);
+
+        var status = HttpStatus.CREATED;
+
+        return ResponseEntity.status(status.value()).build();
+    }
+
+    @PutMapping("/{id}")
+    public ResponseEntity<Void> updateUser(
+            @RequestBody UserUpdateRequestDTO userDTO,
+            @PathVariable Long id
+    ) {
+        this.userService.updateUser(userDTO.nome(), userDTO.email(), userDTO.endereco(), id);
+
+        return ResponseEntity.noContent().build();
+    }
+
+    @PutMapping("/password")
+    public ResponseEntity<Void> changePassword(
+            @RequestBody UserChangePasswordRequestDTO userChangePasswordRequestDTO
+    ) {
+        this.userService.changePassword(userChangePasswordRequestDTO);
+
+        return ResponseEntity.noContent().build();
+    }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Void> deleteUser(
+            @PathVariable Long id
+    ) {
+        this.userService.deleteUser(id);
+
+        return ResponseEntity.noContent().build();
     }
 }
