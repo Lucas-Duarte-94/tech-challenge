@@ -25,12 +25,20 @@ public class UserRepositoryImp implements UserRepository {
     }
 
     @Override
-    public List<User> getAll() {
+    public List<User> getAll(int size, int offset) {
         return this.jdbcClient.sql(
-                "SELECT c.*, 'client' AS type FROM client c " +
-                "UNION " +
-                "SELECT ro.* , 'restaurant_owner' FROM restaurant_owner ro "
+                "SELECT * " +
+                "FROM (" +
+                    "SELECT c.*, 'client' AS type " +
+                    "FROM client AS c " +
+                    "UNION ALL " +
+                    "SELECT ro.* , 'restaurant_owner' AS type " +
+                    "FROM restaurant_owner AS ro " +
+                ") AS combined " +
+                "LIMIT :size OFFSET :offset"
         )
+        .param("size", size)
+        .param("offset", offset)
         .query((rs, rowNum) -> {
             String type = rs.getString("type");
             String userId = rs.getString("id");

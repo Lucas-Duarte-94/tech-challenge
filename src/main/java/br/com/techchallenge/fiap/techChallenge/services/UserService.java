@@ -49,8 +49,9 @@ public class UserService {
         return UserMapper.toAPI(user);
     }
 
-    public List<UserPublicData> getAllUsers() {
-        var users = this.userRepository.getAll();
+    public List<UserPublicData> getAllUsers(int size, int page) {
+        int offset = (page - 1) * size;
+        var users = this.userRepository.getAll(size, offset);
 
         return users.stream().map(UserMapper::toAPI).collect(Collectors.toList());
     }

@@ -7,6 +7,7 @@ import br.com.techchallenge.fiap.techChallenge.dtos.UserUpdateRequestDTO;
 import br.com.techchallenge.fiap.techChallenge.entities.User;
 import br.com.techchallenge.fiap.techChallenge.entities.UserPublicData;
 import br.com.techchallenge.fiap.techChallenge.services.UserService;
+import io.swagger.v3.oas.annotations.Operation;
 import jakarta.websocket.server.PathParam;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -23,9 +24,15 @@ public class UserController {
         this.userService = userService;
     }
 
+    @Operation(
+            description = "Busca de usuários cadastrados paginado, retorno somente com dados públicos"
+    )
     @GetMapping
-    public ResponseEntity<List<UserPublicData>> getUsers() {
-        List<UserPublicData> users = this.userService.getAllUsers();
+    public ResponseEntity<List<UserPublicData>> getUsers(
+            @RequestParam("page") int page,
+            @RequestParam("size") int size
+    ) {
+        List<UserPublicData> users = this.userService.getAllUsers(size, page);
         return ResponseEntity.ok().body(users);
     }
 
