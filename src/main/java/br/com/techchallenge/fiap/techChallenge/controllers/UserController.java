@@ -4,11 +4,9 @@ import br.com.techchallenge.fiap.techChallenge.dtos.UserChangePasswordRequestDTO
 import br.com.techchallenge.fiap.techChallenge.dtos.UserLoginRequestDTO;
 import br.com.techchallenge.fiap.techChallenge.dtos.UserRequestDTO;
 import br.com.techchallenge.fiap.techChallenge.dtos.UserUpdateRequestDTO;
-import br.com.techchallenge.fiap.techChallenge.entities.User;
 import br.com.techchallenge.fiap.techChallenge.entities.UserPublicData;
 import br.com.techchallenge.fiap.techChallenge.services.UserService;
 import io.swagger.v3.oas.annotations.Operation;
-import jakarta.websocket.server.PathParam;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
