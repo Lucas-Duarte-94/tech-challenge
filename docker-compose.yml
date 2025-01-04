@@ -1,0 +1,36 @@
+version: '3.9'
+
+volumes:
+  postgres_data:
+
+services:
+  tech-challenge:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    restart: always
+    ports:
+      - "8080:8080"
+    environment:
+      SPRING_PROFILES_ACTIVE: prod
+      SPRING_DATASOURCE_URL: jdbc:postgresql://tech_challenge_db:5432/tech_challenge
+      POSTGRES_HOST: tech_challenge_db
+      POSTGRES_PORT: 5432
+      POSTGRES_DB: tech_challenge
+      POSTGRES_USER: fiap_tech_challenge
+      POSTGRES_PASSWORD: fiap123
+    depends_on:
+      - tech_challenge_db
+  tech_challenge_db:
+    container_name: tech_challenge_db
+    image: postgres:15
+    restart: always
+    environment:
+      POSTGRES_USER: fiap_tech_challenge
+      POSTGRES_PASSWORD: fiap123
+      POSTGRES_DB: tech_challenge
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./src/main/resources:/tmp
