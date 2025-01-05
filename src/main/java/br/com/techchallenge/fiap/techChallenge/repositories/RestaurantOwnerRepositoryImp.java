@@ -5,6 +5,7 @@ import org.springframework.jdbc.core.simple.JdbcClient;
 import org.springframework.stereotype.Repository;
 
 import java.util.Date;
+import java.util.UUID;
 
 @Repository
 public class RestaurantOwnerRepositoryImp implements RestaurantOwnerRepository {
@@ -16,10 +17,13 @@ public class RestaurantOwnerRepositoryImp implements RestaurantOwnerRepository {
 
     @Override
     public void save(User user) {
+        String uuid = UUID.randomUUID().toString();
+
         this.jdbcClient.sql(
                         "INSERT INTO restaurant_owner (id, nome, email, login, senha, endereco, ultima_alteracao) " +
-                        "VALUES (RANDOM_UUID(), :nome, :email, :login, :senha, :endereco, :ultima_alteracao)"
+                        "VALUES (:uuid, :nome, :email, :login, :senha, :endereco, :ultima_alteracao)"
                 )
+                .param("uuid", uuid)
                 .param("nome", user.getNome())
                 .param("email", user.getEmail())
                 .param("login", user.getLogin())
