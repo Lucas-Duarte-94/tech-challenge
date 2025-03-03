@@ -1,10 +1,6 @@
 package br.com.techchallenge.fiap.techchallenge.controllers;
 
-import br.com.techchallenge.fiap.techchallenge.dtos.UserChangePasswordRequestDTO;
-import br.com.techchallenge.fiap.techchallenge.dtos.UserLoginRequestDTO;
-import br.com.techchallenge.fiap.techchallenge.dtos.UserRequestDTO;
-import br.com.techchallenge.fiap.techchallenge.dtos.UserUpdateRequestDTO;
-import br.com.techchallenge.fiap.techchallenge.entities.UserPublicData;
+import br.com.techchallenge.fiap.techchallenge.dtos.*;
 import br.com.techchallenge.fiap.techchallenge.services.UserService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
@@ -29,11 +25,11 @@ public class UserController {
             summary = "Busca de usuários"
     )
     @GetMapping
-    public ResponseEntity<List<UserPublicData>> getUsers(
+    public ResponseEntity<List<UserPublicDTO>> getUsers(
             @RequestParam("page") int page,
             @RequestParam("size") int size
     ) {
-        List<UserPublicData> users = this.userService.getAllUsers(size, page);
+        List<UserPublicDTO> users = this.userService.getAllUsers(size, page);
         return ResponseEntity.ok().body(users);
     }
 
@@ -42,10 +38,10 @@ public class UserController {
             summary = "Rota de login"
     )
     @PostMapping("/login")
-    public ResponseEntity<UserPublicData> login(
+    public ResponseEntity<UserPublicDTO> login(
             @RequestBody UserLoginRequestDTO loginRequest
         ) {
-        UserPublicData user = this.userService.login(loginRequest.login(), loginRequest.senha());
+        UserPublicDTO user = this.userService.login(loginRequest.login(), loginRequest.senha());
 
         return ResponseEntity.ok().body(user);
     }

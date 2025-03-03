@@ -1,6 +1,7 @@
 package br.com.techchallenge.fiap.techchallenge.services;
 
 import br.com.techchallenge.fiap.techchallenge.dtos.UserChangePasswordRequestDTO;
+import br.com.techchallenge.fiap.techchallenge.dtos.UserPublicDTO;
 import br.com.techchallenge.fiap.techchallenge.dtos.UserRequestDTO;
 import br.com.techchallenge.fiap.techchallenge.entities.Client;
 import br.com.techchallenge.fiap.techchallenge.entities.RestaurantOwner;
@@ -9,7 +10,6 @@ import br.com.techchallenge.fiap.techchallenge.errors.PasswordDoesNotMatchExcept
 import br.com.techchallenge.fiap.techchallenge.errors.UnkownType;
 import br.com.techchallenge.fiap.techchallenge.errors.UserNotFoundException;
 import br.com.techchallenge.fiap.techchallenge.mappers.UserMapper;
-import br.com.techchallenge.fiap.techchallenge.entities.UserPublicData;
 import br.com.techchallenge.fiap.techchallenge.repositories.ClientRepository;
 import br.com.techchallenge.fiap.techchallenge.repositories.RestaurantOwnerRepository;
 import br.com.techchallenge.fiap.techchallenge.repositories.UserRepository;
@@ -35,7 +35,7 @@ public class UserService {
 
     private static final Logger logger = LoggerFactory.getLogger(UserService.class);
 
-    public UserPublicData login(String login, String senha) {
+    public UserPublicDTO login(String login, String senha) {
         User user = this.userRepository.getByLogin(login).orElseThrow(UserNotFoundException::new);
 
 
@@ -48,7 +48,7 @@ public class UserService {
         return UserMapper.toAPI(user);
     }
 
-    public List<UserPublicData> getAllUsers(int size, int page) {
+    public List<UserPublicDTO> getAllUsers(int size, int page) {
         int offset = (page - 1) * size;
         var users = this.userRepository.getAll(size, offset);
 
