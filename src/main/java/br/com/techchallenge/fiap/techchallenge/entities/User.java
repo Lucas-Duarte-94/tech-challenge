@@ -11,9 +11,9 @@ public abstract class User {
     private Date ultimaAlteracao;
     private String endereco;
 
-    public User() {}
+    protected User() {}
 
-    public User(String id, String nome, String email, String senha, String login, Date ultimaAlteracao, String endereco) {
+    protected User(String id, String nome, String email, String senha, String login, Date ultimaAlteracao, String endereco) {
         this.id = id;
         this.nome = nome;
         this.email = email;
@@ -23,7 +23,7 @@ public abstract class User {
         this.endereco = endereco;
     }
 
-    public User(String nome, String email, String senha, String login, String endereco) {
+    protected User(String nome, String email, String senha, String login, String endereco) {
         this.nome = nome;
         this.email = email;
         this.senha = senha;
