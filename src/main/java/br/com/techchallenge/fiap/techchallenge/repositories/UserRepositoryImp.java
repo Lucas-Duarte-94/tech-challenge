@@ -18,7 +18,7 @@ import java.util.Optional;
 public class UserRepositoryImp implements UserRepository {
     private final JdbcClient jdbcClient;
 
-    private static final Logger logger = LoggerFactory.getLogger(User.class);
+    private static final Logger logger = LoggerFactory.getLogger(UserRepositoryImp.class);
 
     public UserRepositoryImp(JdbcClient jdbcClient) {
         this.jdbcClient = jdbcClient;

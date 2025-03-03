@@ -33,7 +33,7 @@ public class UserService {
     @Autowired
     private RestaurantOwnerRepository restaurantOwnerRepository;
 
-    private static final Logger logger = LoggerFactory.getLogger(User.class);
+    private static final Logger logger = LoggerFactory.getLogger(UserService.class);
 
     public UserPublicData login(String login, String senha) {
         User user = this.userRepository.getByLogin(login).orElseThrow(UserNotFoundException::new);
