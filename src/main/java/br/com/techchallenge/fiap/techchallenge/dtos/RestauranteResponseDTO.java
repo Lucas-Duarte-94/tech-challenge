@@ -6,18 +6,17 @@ import lombok.EqualsAndHashCode;
 
 import java.time.DayOfWeek;
 import java.time.LocalTime;
+import java.util.List;
 
 @Data
 @EqualsAndHashCode(callSuper=false)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class RestauranteResponseDTO {
-	private Long idFuncionamento;
+	private String nomeRestaurante;
 
-	private DayOfWeek diaSemana;
+	private String tipoCozinha;
 
-	private LocalTime horaAbertura;
+	private List<FuncionamentoDTO> funcionamentoRestaurante;
 
-	private LocalTime horaFechamento;
-
-	private RestauranteDTO restaurante;
+//	private UsuarioResponseDTO usuario;
 }
