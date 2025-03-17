@@ -13,7 +13,6 @@ import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
-
 @Repository
 public class UserRepositoryImp implements UserRepository {
     private final JdbcClient jdbcClient;
