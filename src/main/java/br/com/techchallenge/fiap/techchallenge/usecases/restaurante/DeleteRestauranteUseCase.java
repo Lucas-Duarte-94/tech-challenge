@@ -12,4 +12,8 @@ public class DeleteRestauranteUseCase {
     public static DeleteRestauranteUseCase create(RestauranteRepository restauranteRepository) {
         return new DeleteRestauranteUseCase(restauranteRepository);
     }
+
+    public void execute(Long id) {
+        restauranteRepository.deleteById(id);
+    }
 }

@@ -12,4 +12,8 @@ public class DeleteTipoUsuarioUseCase {
     public static DeleteTipoUsuarioUseCase create(TipoUsuarioRepository tipoUsuarioRepository) {
         return new DeleteTipoUsuarioUseCase(tipoUsuarioRepository);
     }
+
+    public void execute(Long idTipoUsuario) {
+        tipoUsuarioRepository.deleteById(idTipoUsuario);
+    }
 }
