@@ -7,7 +7,9 @@ public record CreateEnderecoDTO(
         String descricaoBairro,
         String descricaoCidade,
         String descricaoEstado,
-        String numeroCep
+        String numeroCep,
+        Long usuarioId,
+        Long restauranteId
 
 ) {
 }

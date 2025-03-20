@@ -12,4 +12,8 @@ public class DeleteEnderecoUseCase {
     public static DeleteEnderecoUseCase create(EnderecoRepository enderecoRepository) {
         return new DeleteEnderecoUseCase(enderecoRepository);
     }
+
+    public void execute(Long id) {
+        enderecoRepository.deleteById(id);
+    }
 }

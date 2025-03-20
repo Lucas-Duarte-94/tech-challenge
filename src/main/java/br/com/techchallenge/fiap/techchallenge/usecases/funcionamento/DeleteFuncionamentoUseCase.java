@@ -12,4 +12,8 @@ public class DeleteFuncionamentoUseCase {
     public static DeleteFuncionamentoUseCase create(FuncionamentoRepository funcionamentoRepository) {
         return new DeleteFuncionamentoUseCase(funcionamentoRepository);
     }
+
+    public void execute(Long funcionamentoId) {
+        funcionamentoRepository.deleteById(funcionamentoId);
+    }
 }

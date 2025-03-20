@@ -12,4 +12,8 @@ public class DeleteCardapioUseCase {
     public static DeleteCardapioUseCase create(CardapioRepository cardapioRepository) {
         return new DeleteCardapioUseCase(cardapioRepository);
     }
+
+    public void execute(Long id) {
+        cardapioRepository.deleteById(id);
+    }
 }
