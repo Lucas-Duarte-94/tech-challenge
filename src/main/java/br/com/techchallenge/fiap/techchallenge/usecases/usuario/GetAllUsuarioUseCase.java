@@ -4,6 +4,8 @@ import br.com.techchallenge.fiap.techchallenge.dtos.UsuarioPublicDTO;
 import br.com.techchallenge.fiap.techchallenge.entities.Usuario;
 import br.com.techchallenge.fiap.techchallenge.mappers.UsuarioMapper;
 import br.com.techchallenge.fiap.techchallenge.repositories.UsuarioRepository;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -19,8 +21,8 @@ public class GetAllUsuarioUseCase {
         return new GetAllUsuarioUseCase(usuarioRepository);
     }
 
-    public List<UsuarioPublicDTO> execute() {
-        var users = usuarioRepository.findAll();
-        return users.stream().map(UsuarioMapper::toAPI).collect(Collectors.toList());
+    public List<UsuarioPublicDTO> execute(int size, int page) {
+        Pageable pageable = PageRequest.of(page, size);
+        return usuarioRepository.findAll(pageable).stream().map(UsuarioMapper::toAPI).toList();
     }
 }
