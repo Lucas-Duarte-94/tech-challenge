@@ -1,6 +1,7 @@
 package br.com.techchallenge.fiap.techchallenge.usecases.tipousuario;
 
 import br.com.techchallenge.fiap.techchallenge.entities.TipoUsuario;
+import br.com.techchallenge.fiap.techchallenge.enums.TipoUsuarioEnum;
 import br.com.techchallenge.fiap.techchallenge.errors.TipoUsuarioNotFoundException;
 import br.com.techchallenge.fiap.techchallenge.repositories.TipoUsuarioRepository;
 
@@ -15,9 +16,14 @@ public class UpdateTipoUsuarioUseCase {
         return new UpdateTipoUsuarioUseCase(tipoUsuarioRepository);
     }
 
-    public TipoUsuario execute(TipoUsuario tipoUsuario) {
-        tipoUsuarioRepository.findById(tipoUsuario.getIdTipoUsuario()).orElseThrow(TipoUsuarioNotFoundException::new);
+    public TipoUsuario execute(Long id, String descTipoUsuario) {
+        tipoUsuarioRepository.findById(id).orElseThrow(TipoUsuarioNotFoundException::new);
 
-        return tipoUsuarioRepository.save(tipoUsuario);
+        TipoUsuario updatedTipoUsuario = TipoUsuario.builder()
+                .idTipoUsuario(id).
+                descricaoTipoUsuario(TipoUsuarioEnum.fromValue(descTipoUsuario))
+                .build();
+
+        return tipoUsuarioRepository.save(updatedTipoUsuario);
     }
 }

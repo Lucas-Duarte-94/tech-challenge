@@ -2,7 +2,7 @@ package br.com.techchallenge.fiap.techchallenge.dtos;
 
 import java.util.Optional;
 
-public record CreateEnderecoDTO(
+public record UpdateEnderecoDTO(
         String descricaoLogradouro,
         String numero,
         String descricaoComplemento,
@@ -10,8 +10,7 @@ public record CreateEnderecoDTO(
         String descricaoCidade,
         String descricaoEstado,
         String numeroCep,
-        Optional<Long> usuarioId,
+        Long usuarioId,
         Optional<Long> restauranteId
-
 ) {
 }

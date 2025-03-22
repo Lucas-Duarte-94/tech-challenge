@@ -1,8 +1,9 @@
 package br.com.techchallenge.fiap.techchallenge.dtos;
 
+import br.com.techchallenge.fiap.techchallenge.entities.Endereco;
+
 public record UserUpdateRequestDTO(
-        String nome,
-        String email,
-        String endereco
+        String nomeCompleto,
+        String email
 ) {
 }

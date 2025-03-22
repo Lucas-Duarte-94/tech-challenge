@@ -12,6 +12,6 @@ import java.util.Optional;
 @Repository
 public interface CardapioRepository extends JpaRepository<Cardapio, Long>, JpaSpecificationExecutor<Cardapio> {
 
-//    @Query("SELECT c FROM Cardapio c WHERE c.restaurante.idRestaurante = :id")
-//    Optional<Cardapio> findByRestaurante_Id(@Param("id") Long id);
+    @Query("SELECT c FROM Cardapio c WHERE c.restaurante.idRestaurante = :id")
+    Optional<Cardapio> findByRestaurante_Id(@Param("id") Long id);
 }

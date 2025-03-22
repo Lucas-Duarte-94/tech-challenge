@@ -1,5 +1,6 @@
 package br.com.techchallenge.fiap.techchallenge.usecases.endereco;
 
+import br.com.techchallenge.fiap.techchallenge.dtos.EnderecoPublicDTO;
 import br.com.techchallenge.fiap.techchallenge.entities.Endereco;
 import br.com.techchallenge.fiap.techchallenge.repositories.UsuarioRepository;
 

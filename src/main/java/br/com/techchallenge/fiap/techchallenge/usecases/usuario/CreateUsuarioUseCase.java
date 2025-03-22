@@ -6,6 +6,7 @@ import br.com.techchallenge.fiap.techchallenge.entities.Endereco;
 import br.com.techchallenge.fiap.techchallenge.entities.TipoUsuario;
 import br.com.techchallenge.fiap.techchallenge.entities.Usuario;
 import br.com.techchallenge.fiap.techchallenge.errors.TipoUsuarioNotFoundException;
+import br.com.techchallenge.fiap.techchallenge.errors.UsuarioAlreadyExistsException;
 import br.com.techchallenge.fiap.techchallenge.mappers.UsuarioMapper;
 import br.com.techchallenge.fiap.techchallenge.repositories.EnderecoRepository;
 import br.com.techchallenge.fiap.techchallenge.repositories.TipoUsuarioRepository;
@@ -30,6 +31,12 @@ public class CreateUsuarioUseCase {
     @Transactional
     public UsuarioPublicDTO execute(CreateUsuarioDTO usuario) {
         TipoUsuario tipoUsuario = tipoUsuarioRepository.findByDescricaoTipoUsuario(usuario.tipoUsuario()).orElseThrow(TipoUsuarioNotFoundException::new);
+
+        var userExists = usuarioRepository.findByLogin(usuario.login());
+
+        if(userExists.isPresent()) {
+            throw new UsuarioAlreadyExistsException();
+        }
 
         Endereco endereco = Endereco.builder()
                 .descricaoLogradouro(usuario.endereco().descricaoLogradouro())

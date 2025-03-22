@@ -16,9 +16,10 @@ public class CreateTipoUsuarioUseCase {
     }
 
     public TipoUsuario execute(String descricaoTipoUsuario) {
+
         var tipoUsuario = TipoUsuario
                 .builder()
-                .descricaoTipoUsuario(TipoUsuarioEnum.valueOf(descricaoTipoUsuario))
+                .descricaoTipoUsuario(TipoUsuarioEnum.fromValue(descricaoTipoUsuario))
                 .build();
 
         return tipoUsuarioRepository.save(tipoUsuario);

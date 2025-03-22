@@ -25,6 +25,7 @@ public class CreateItemCardapioUseCase {
 
         ItemCardapio newIC = ItemCardapio.builder()
                 .valor(itemCardapio.valor())
+                .descricao(itemCardapio.descricao())
                 .nome(itemCardapio.nome())
                 .foto(itemCardapio.foto())
                 .somenteLocal(itemCardapio.somenteLocal())

@@ -1,5 +1,6 @@
 package br.com.techchallenge.fiap.techchallenge.usecases.restaurante;
 
+import br.com.techchallenge.fiap.techchallenge.dtos.UpdateRestauranteRequestDTO;
 import br.com.techchallenge.fiap.techchallenge.entities.Restaurante;
 import br.com.techchallenge.fiap.techchallenge.errors.RestauranteNotFoundException;
 import br.com.techchallenge.fiap.techchallenge.repositories.RestauranteRepository;
@@ -15,8 +16,11 @@ public class UpdateRestauranteUseCase {
         return new UpdateRestauranteUseCase(restauranteRepository);
     }
 
-    public Restaurante execute(Restaurante restaurante) {
-        restauranteRepository.findById(restaurante.getIdRestaurante()).orElseThrow(RestauranteNotFoundException::new);
+    public Restaurante execute(Long id, UpdateRestauranteRequestDTO request) {
+        var restaurante = restauranteRepository.findById(id).orElseThrow(RestauranteNotFoundException::new);
+
+        restaurante.setNomeRestaurante(request.nomeRestaurante());
+        restaurante.setTipoCozinha(request.tipoCozinha());
 
         return restauranteRepository.save(restaurante);
     }

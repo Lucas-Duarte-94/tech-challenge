@@ -16,7 +16,7 @@ public class GetTipoUsuarioUseCase {
         return new GetTipoUsuarioUseCase(tipoUsuarioRepository);
     }
 
-    public TipoUsuario execute(TipoUsuarioEnum descricaoTipoUsuario) {
-        return tipoUsuarioRepository.findByDescricaoTipoUsuario(descricaoTipoUsuario).orElseThrow(TipoUsuarioNotFoundException::new);
+    public TipoUsuario execute(Long id) {
+        return tipoUsuarioRepository.findById(id).orElseThrow(TipoUsuarioNotFoundException::new);
     }
 }

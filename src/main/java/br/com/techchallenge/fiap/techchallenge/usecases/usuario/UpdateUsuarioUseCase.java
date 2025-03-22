@@ -1,10 +1,14 @@
 package br.com.techchallenge.fiap.techchallenge.usecases.usuario;
 
+import br.com.techchallenge.fiap.techchallenge.dtos.UserUpdateRequestDTO;
 import br.com.techchallenge.fiap.techchallenge.dtos.UsuarioPublicDTO;
 import br.com.techchallenge.fiap.techchallenge.entities.Usuario;
 import br.com.techchallenge.fiap.techchallenge.errors.UserNotFoundException;
 import br.com.techchallenge.fiap.techchallenge.mappers.UsuarioMapper;
 import br.com.techchallenge.fiap.techchallenge.repositories.UsuarioRepository;
+import org.springframework.web.bind.annotation.PathVariable;
+
+import java.time.OffsetDateTime;
 
 public class UpdateUsuarioUseCase {
     private final UsuarioRepository usuarioRepository;
@@ -17,8 +21,12 @@ public class UpdateUsuarioUseCase {
         return new UpdateUsuarioUseCase(usuarioRepository);
     }
 
-    public UsuarioPublicDTO execute(Usuario usuario) {
-        usuarioRepository.findById(usuario.getIdUsuario()).orElseThrow(UserNotFoundException::new);
+    public UsuarioPublicDTO execute(Long id, UserUpdateRequestDTO userDTO) {
+        var usuario = usuarioRepository.findById(id).orElseThrow(UserNotFoundException::new);
+
+        usuario.setEmail(userDTO.email());
+        usuario.setNomeCompleto(userDTO.nomeCompleto());
+        usuario.setDataAtualizacao(OffsetDateTime.now());
 
         var updatedUser = usuarioRepository.save(usuario);
 

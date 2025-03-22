@@ -33,10 +33,10 @@ public class GetCardapioByRestauranteIdUseCase {
         return new GetCardapioByRestauranteIdUseCase(cardapioRepository, restauranteRepository, itemCardapioRepository);
     }
 
-//    public CardapioResponseDTO execute(Long restauranteId) {
-//        var cardapio = cardapioRepository.findByRestaurante_Id(restauranteId).orElseThrow(CardapioNotFoundException::new);
-//
-//        List<ItemCardapio> cardapioItems = itemCardapioRepository.findAllByCardapio_Id(cardapio.getIdCardapio());
-//        return new CardapioResponseDTO(cardapio, cardapioItems);
-//    }
+    public CardapioResponseDTO execute(Long restauranteId) {
+        var cardapio = cardapioRepository.findByRestaurante_Id(restauranteId).orElseThrow(CardapioNotFoundException::new);
+
+        List<ItemCardapio> cardapioItems = itemCardapioRepository.findAllByCardapio_IdCardapio(cardapio.getIdCardapio());
+        return new CardapioResponseDTO(cardapio, cardapioItems);
+    }
 }
