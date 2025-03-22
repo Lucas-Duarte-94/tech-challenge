@@ -98,10 +98,11 @@ public class RestauranteController {
     )
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> deleteRestaurante(
-            @PathVariable Long id
+            @PathVariable Long id,
+            @RequestBody DeleteRestauranteDTO request
     ) {
         var usecase = DeleteRestauranteUseCase.create(restauranteRepository);
-        usecase.execute(id);
+        usecase.execute(id, request.usuarioId());
 
         return ResponseEntity.noContent().build();
     }

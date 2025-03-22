@@ -39,4 +39,9 @@ public class GlobalExceptionController {
     public ResponseEntity<String> handleCardapioNotFoundException(CardapioNotFoundException ex) {
         return ResponseEntity.status(HttpStatus.NOT_FOUND).body(ex.getMessage());
     }
+
+    @ExceptionHandler(UserDoesNotHavePermissionException.class)
+    public ResponseEntity<String> handleUserDoesNotHavePermissionException(UserDoesNotHavePermissionException ex) {
+        return ResponseEntity.status(HttpStatus.NOT_FOUND).body(ex.getMessage());
+    }
 }
