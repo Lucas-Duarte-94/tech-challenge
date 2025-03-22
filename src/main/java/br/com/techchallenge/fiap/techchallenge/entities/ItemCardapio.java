@@ -1,6 +1,7 @@
 package br.com.techchallenge.fiap.techchallenge.entities;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
@@ -47,6 +48,7 @@ public class ItemCardapio {
     private Boolean somenteLocal;
 
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @JsonIgnore
     @JoinColumn(name = "IDE_CARDAPIO", nullable = false)
     private Cardapio cardapio;
 

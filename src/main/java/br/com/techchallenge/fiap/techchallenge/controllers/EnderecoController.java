@@ -14,6 +14,8 @@ import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Optional;
+
 @RestController
 @RequestMapping("/endereco")
 @Tag(name = "Endereço", description = "Controller CRUD de endereço")
@@ -34,10 +36,12 @@ public class EnderecoController {
     )
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> deleteEndereco(
-            @PathVariable("id") Long id
+            @PathVariable("id") Long id,
+            @RequestParam(required = false, name = "restauranteId") Long restauranteId,
+            @RequestParam(required = false, name = "usuarioId") Long usuarioId
     ) {
-        var usecase = DeleteEnderecoUseCase.create(enderecoRepository);
-        usecase.execute(id);
+        var usecase = DeleteEnderecoUseCase.create(enderecoRepository, usuarioRepository, restauranteRepository);
+        usecase.execute(id, Optional.ofNullable(restauranteId), Optional.ofNullable(usuarioId));
 
         return ResponseEntity.noContent().build();
     }
