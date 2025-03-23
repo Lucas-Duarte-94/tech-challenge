@@ -7,7 +7,7 @@ import br.com.techchallenge.fiap.techchallenge.entities.Usuario;
 import br.com.techchallenge.fiap.techchallenge.repositories.UsuarioRepository;
 
 public class EnderecoMapper {
-    private UsuarioRepository usuarioRepository;
+    /*private UsuarioRepository usuarioRepository;
     private static EnderecoMapper instance;
 
     private EnderecoMapper(UsuarioRepository usuarioRepository) {
@@ -33,5 +33,5 @@ public class EnderecoMapper {
 //        return new EnderecoPublicDTO(
 //
 //        );
-//    }
+//    }*/
 }

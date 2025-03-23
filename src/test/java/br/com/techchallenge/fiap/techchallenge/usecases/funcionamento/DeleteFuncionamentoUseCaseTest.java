@@ -8,6 +8,7 @@ import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.mockito.Mockito.*;
 
 @ExtendWith(MockitoExtension.class)
@@ -59,5 +60,11 @@ public class DeleteFuncionamentoUseCaseTest {
 
         // Verificando se o repositório foi chamado
         verify(funcionamentoRepository, times(1)).deleteById(funcionamentoId);
+    }
+
+    @Test
+    void deveCriarUseCaseComSucesso() {
+        assertNotNull(
+                DeleteFuncionamentoUseCase.create(funcionamentoRepository));
     }
 }

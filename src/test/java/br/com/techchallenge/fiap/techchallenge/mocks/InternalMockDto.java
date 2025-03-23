@@ -1,5 +1,6 @@
 package br.com.techchallenge.fiap.techchallenge.mocks;
 
+import br.com.techchallenge.fiap.techchallenge.dtos.CardapioResponseDTO;
 import br.com.techchallenge.fiap.techchallenge.dtos.CreateEnderecoDTO;
 import br.com.techchallenge.fiap.techchallenge.dtos.CreateFuncionamentoDTO;
 import br.com.techchallenge.fiap.techchallenge.dtos.CreateItemCardapioDTO;
@@ -10,6 +11,7 @@ import br.com.techchallenge.fiap.techchallenge.dtos.UpdateFuncionamentoDTO;
 import java.math.BigDecimal;
 import java.time.DayOfWeek;
 import java.time.LocalTime;
+import java.util.List;
 import java.util.Optional;
 
 public class InternalMockDto {
@@ -84,5 +86,9 @@ public class InternalMockDto {
                 Optional.of(1L),
                 Optional.empty()
         );
+    }
+
+    public static CardapioResponseDTO getCardapioResponseDto() {
+        return new CardapioResponseDTO(InternalMock.getCardapio(), List.of(InternalMock.getItemCardapio()));
     }
 }

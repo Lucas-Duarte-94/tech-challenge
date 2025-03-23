@@ -23,6 +23,11 @@ public class UpdateItemCardapioUseCaseTest {
     private UpdateItemCardapioUseCase updateItemCardapioUseCase;
 
     @Test
+    void deveCriarUseCaseComSucesso() {
+        assertNotNull(
+                UpdateItemCardapioUseCase.create(itemCardapioRepository));
+    }
+    @Test
     void deveAtualizarItemCardapioQuandoExistir() {
         Long itemCardapioId = 1L;
         UpdateItemCardapioDTO updateDTO = new UpdateItemCardapioDTO(

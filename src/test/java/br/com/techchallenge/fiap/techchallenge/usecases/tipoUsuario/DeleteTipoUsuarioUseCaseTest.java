@@ -30,6 +30,11 @@ public class DeleteTipoUsuarioUseCaseTest {
     private DeleteTipoUsuarioUseCase deleteTipoUsuarioUseCase;
 
     @Test
+    void deveCriarUseCaseComSucesso() {
+        assertNotNull(
+                DeleteTipoUsuarioUseCase.create(tipoUsuarioRepository));
+    }
+    @Test
     void deveCriarInstanciaDeDeleteTipoUsuarioUseCase() {
         DeleteTipoUsuarioUseCase instance = DeleteTipoUsuarioUseCase.create(tipoUsuarioRepository);
         assertNotNull(instance);

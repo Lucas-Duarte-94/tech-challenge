@@ -8,6 +8,7 @@ import br.com.techchallenge.fiap.techchallenge.mocks.InternalMock;
 import br.com.techchallenge.fiap.techchallenge.mocks.InternalMockDto;
 import br.com.techchallenge.fiap.techchallenge.repositories.CardapioRepository;
 import br.com.techchallenge.fiap.techchallenge.repositories.ItemCardapioRepository;
+import br.com.techchallenge.fiap.techchallenge.usecases.funcionamento.GetFuncionamentoUseCase;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
@@ -31,6 +32,11 @@ public class CreateItemCardapioUseCaseTest {
     @InjectMocks
     private CreateItemCardapioUseCase createItemCardapioUseCase;
 
+    @Test
+    void deveCriarUseCaseComSucesso() {
+        assertNotNull(
+                CreateItemCardapioUseCase.create(itemCardapioRepository, cardapioRepository));
+    }
     @Test
     void deveCriarItemCardapioComSucesso() {
         CreateItemCardapioDTO dto = InternalMockDto.getCreateItemCardapioDTO();

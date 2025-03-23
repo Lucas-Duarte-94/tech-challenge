@@ -86,4 +86,10 @@ public class GetAllRestauranteUseCaseTest {
         // Verificando se o repositório foi chamado com o PageRequest correto
         verify(restauranteRepository, times(1)).findAll(pageable);
     }
+
+    @Test
+    void deveCriarUseCaseComSucesso() {
+        assertNotNull(
+                GetAllRestauranteUseCase.create(restauranteRepository));
+    }
 }

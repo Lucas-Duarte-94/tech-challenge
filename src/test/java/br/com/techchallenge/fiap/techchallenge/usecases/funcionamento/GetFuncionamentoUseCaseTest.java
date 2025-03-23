@@ -49,4 +49,10 @@ public class GetFuncionamentoUseCaseTest {
 
         verify(funcionamentoRepository, times(1)).findById(funcionamentoId);
     }
+
+    @Test
+    void deveCriarUseCaseComSucesso() {
+        assertNotNull(
+                GetFuncionamentoUseCase.create(funcionamentoRepository));
+    }
 }

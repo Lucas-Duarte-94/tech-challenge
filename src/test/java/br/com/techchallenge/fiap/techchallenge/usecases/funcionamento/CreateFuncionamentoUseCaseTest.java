@@ -114,4 +114,10 @@ public class CreateFuncionamentoUseCaseTest {
         verify(usuarioRepository, times(1)).findById(usuarioId);
         verify(restauranteRepository, times(1)).findById(restauranteId);
     }
+
+    @Test
+    void deveCriarUseCaseComSucesso() {
+        assertNotNull(
+                CreateFuncionamentoUseCase.create(funcionamentoRepository, restauranteRepository, usuarioRepository));
+    }
 }

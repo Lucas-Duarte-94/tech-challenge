@@ -37,6 +37,11 @@ public class UpdateUsuarioUseCaseTest {
     private Endereco endereco;
 
     @Test
+    void deveCriarUseCaseComSucesso() {
+        assertNotNull(
+                UpdateUsuarioUseCase.create(usuarioRepository));
+    }
+    @Test
     void deveCriarInstanciaDeUpdateUsuarioUseCase() {
         // Executa o método estático create() para criar uma instância do caso de uso
         UpdateUsuarioUseCase instance = UpdateUsuarioUseCase.create(usuarioRepository);

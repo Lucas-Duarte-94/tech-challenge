@@ -24,6 +24,11 @@ public class GetRestauranteByIdUseCaseTest {
     private GetRestauranteByIdUseCase getRestauranteByIdUseCase;
 
     @Test
+    void deveCriarUseCaseComSucesso() {
+        assertNotNull(
+                GetRestauranteByIdUseCase.create(restauranteRepository));
+    }
+    @Test
     void deveRetornarRestauranteQuandoExistir() {
         Long idRestaurante = 1L;
         Restaurante restauranteMock = InternalMock.getRestaurante();
