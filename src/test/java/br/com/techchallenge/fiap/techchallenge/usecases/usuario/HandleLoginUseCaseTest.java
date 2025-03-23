@@ -33,7 +33,11 @@ public class HandleLoginUseCaseTest {
 
     private Endereco endereco;
 
-
+    @Test
+    void deveCriarUseCaseComSucesso() {
+        assertNotNull(
+                HandleLoginUseCase.create(usuarioRepository));
+    }
     @Test
     void deveCriarInstanciaDeHandleLoginUseCase() {
         // Executa o método estático create()

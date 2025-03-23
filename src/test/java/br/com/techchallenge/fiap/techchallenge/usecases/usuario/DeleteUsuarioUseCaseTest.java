@@ -21,7 +21,11 @@ public class DeleteUsuarioUseCaseTest {
     @Mock
     private UsuarioRepository usuarioRepository;
 
-
+    @Test
+    void deveCriarUseCaseComSucesso() {
+        assertNotNull(
+                DeleteUsuarioUseCase.create(usuarioRepository));
+    }
     @Test
     void deveDeletarUsuarioComSucesso() {
         Long usuarioId = 1L;

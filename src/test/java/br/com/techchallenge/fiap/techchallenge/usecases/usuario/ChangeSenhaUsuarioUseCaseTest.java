@@ -5,6 +5,7 @@ import br.com.techchallenge.fiap.techchallenge.entities.Usuario;
 import br.com.techchallenge.fiap.techchallenge.errors.PasswordDoesNotMatchException;
 import br.com.techchallenge.fiap.techchallenge.errors.UserNotFoundException;
 import br.com.techchallenge.fiap.techchallenge.repositories.UsuarioRepository;
+import br.com.techchallenge.fiap.techchallenge.usecases.tipousuario.UpdateTipoUsuarioUseCase;
 import br.com.techchallenge.fiap.techchallenge.usecases.usuario.ChangeSenhaUsuarioUseCase;
 import br.com.techchallenge.fiap.techchallenge.usecases.usuario.DeleteUsuarioUseCase;
 import org.junit.jupiter.api.Test;
@@ -33,6 +34,11 @@ public class ChangeSenhaUsuarioUseCaseTest {
     @Mock
     private UsuarioRepository usuarioRepository;
 
+    @Test
+    void deveCriarUseCaseComSucesso() {
+        assertNotNull(
+                ChangeSenhaUsuarioUseCase.create(usuarioRepository));
+    }
     @Test
     void deveCriarInstanciaDeChangeSenhaUsuarioUseCase() {
         // Executa o método estático create() para criar uma instância do caso de uso

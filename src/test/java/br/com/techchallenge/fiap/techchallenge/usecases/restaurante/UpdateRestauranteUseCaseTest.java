@@ -25,6 +25,11 @@ public class UpdateRestauranteUseCaseTest {
     private UpdateRestauranteUseCase updateRestauranteUseCase;
 
     @Test
+    void deveCriarUseCaseComSucesso() {
+        assertNotNull(
+                UpdateRestauranteUseCase.create(restauranteRepository));
+    }
+    @Test
     void deveAtualizarRestauranteQuandoUsuarioForValido() {
         Long idRestaurante = 1L;
         Long usuarioId = 1L;

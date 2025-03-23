@@ -139,4 +139,10 @@ public class UpdateFuncionamentoUseCaseTest {
         verify(restauranteRepository, times(1)).findById(updateFuncionamentoDTO.restauranteId());
         verify(funcionamentoRepository, times(1)).findById(funcionamentoId);
     }
+
+    @Test
+    void deveCriarUseCaseComSucesso() {
+        assertNotNull(
+                UpdateFuncionamentoUseCase.create(funcionamentoRepository, usuarioRepository, restauranteRepository));
+    }
 }

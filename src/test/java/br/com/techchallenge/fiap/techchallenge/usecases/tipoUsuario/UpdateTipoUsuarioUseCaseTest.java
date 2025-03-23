@@ -5,6 +5,7 @@ import br.com.techchallenge.fiap.techchallenge.enums.TipoUsuarioEnum;
 import br.com.techchallenge.fiap.techchallenge.errors.TipoUsuarioNotFoundException;
 import br.com.techchallenge.fiap.techchallenge.repositories.TipoUsuarioRepository;
 import br.com.techchallenge.fiap.techchallenge.usecases.tipousuario.CreateTipoUsuarioUseCase;
+import br.com.techchallenge.fiap.techchallenge.usecases.tipousuario.GetTipoUsuarioUseCase;
 import br.com.techchallenge.fiap.techchallenge.usecases.tipousuario.UpdateTipoUsuarioUseCase;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -32,6 +33,11 @@ public class UpdateTipoUsuarioUseCaseTest {
     @InjectMocks
     private UpdateTipoUsuarioUseCase updateTipoUsuarioUseCase;
 
+    @Test
+    void deveCriarUseCaseComSucesso() {
+        assertNotNull(
+                UpdateTipoUsuarioUseCase.create(tipoUsuarioRepository));
+    }
     @Test
     void deveCriarInstanciaDeUpdateTipoUsuarioUseCase() {
         UpdateTipoUsuarioUseCase instance = UpdateTipoUsuarioUseCase.create(tipoUsuarioRepository);

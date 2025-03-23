@@ -13,6 +13,7 @@ import br.com.techchallenge.fiap.techchallenge.mocks.InternalMockDto;
 import br.com.techchallenge.fiap.techchallenge.repositories.EnderecoRepository;
 import br.com.techchallenge.fiap.techchallenge.repositories.RestauranteRepository;
 import br.com.techchallenge.fiap.techchallenge.repositories.UsuarioRepository;
+import br.com.techchallenge.fiap.techchallenge.usecases.itemcardapio.UpdateItemCardapioUseCase;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
@@ -37,6 +38,11 @@ public class CreateRestauranteUseCaseTest {
     @InjectMocks
     private CreateRestauranteUseCase createRestauranteUseCase;
 
+    @Test
+    void deveCriarUseCaseComSucesso() {
+        assertNotNull(
+                CreateRestauranteUseCase.create(restauranteRepository, usuarioRepository, enderecoRepository));
+    }
     @Test
     void deveCriarRestauranteQuandoUsuarioForValido() {
         Long usuarioId = 1L;

@@ -69,4 +69,10 @@ public class GetFuncionamentoByRestauranteIdUseCaseTest {
         assertNull(result);
         verify(funcionamentoRepository, times(1)).findByRestaurante_IdRestaurante(restauranteId);
     }
+
+    @Test
+    void deveCriarUseCaseComSucesso() {
+        assertNotNull(
+                GetFuncionamentoByRestauranteIdUseCase.create(funcionamentoRepository));
+    }
 }

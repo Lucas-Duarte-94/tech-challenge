@@ -26,6 +26,11 @@ public class DeleteRestauranteUseCaseTest {
     private DeleteRestauranteUseCase deleteRestauranteUseCase;
 
     @Test
+    void deveCriarUseCaseComSucesso() {
+        assertNotNull(
+                DeleteRestauranteUseCase.create(restauranteRepository));
+    }
+    @Test
     void deveDeletarRestauranteComSucesso() {
         Long restauranteId = 1L;
         Long usuarioId = 1L;

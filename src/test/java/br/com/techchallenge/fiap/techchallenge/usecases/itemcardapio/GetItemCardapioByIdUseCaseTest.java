@@ -23,6 +23,11 @@ public class GetItemCardapioByIdUseCaseTest {
     private GetItemCardapioByIdUseCase getItemCardapioByIdUseCase;
 
     @Test
+    void deveCriarUseCaseComSucesso() {
+        assertNotNull(
+                GetItemCardapioByIdUseCase.create(itemCardapioRepository));
+    }
+    @Test
     void deveRetornarItemCardapioQuandoExistir() {
         Long itemCardapioId = 1L;
         ItemCardapio itemCardapio = new ItemCardapio(/* parâmetros válidos */);

@@ -72,6 +72,11 @@ public class CreateUsuarioUseCaseTest {
     }
 
     @Test
+    void deveCriarUseCaseComSucesso() {
+        assertNotNull(
+                CreateUsuarioUseCase.create(usuarioRepository, tipoUsuarioRepository, enderecoRepository));
+    }
+    @Test
     void deveCriarUsuarioComSucesso() {
         // Simula que o tipo de usuário existe
         when(tipoUsuarioRepository.findByDescricaoTipoUsuario(TipoUsuarioEnum.CLIENTE))

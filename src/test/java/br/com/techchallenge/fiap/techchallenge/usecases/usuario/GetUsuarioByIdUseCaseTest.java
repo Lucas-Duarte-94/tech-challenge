@@ -34,6 +34,11 @@ public class GetUsuarioByIdUseCaseTest {
     private Endereco endereco;
 
     @Test
+    void deveCriarUseCaseComSucesso() {
+        assertNotNull(
+                GetUsuarioByIdUseCase.create(usuarioRepository));
+    }
+    @Test
     void deveCriarInstanciaDeGetUsuarioByIdUseCase() {
         // Executa o método estático create()
         GetUsuarioByIdUseCase instance = GetUsuarioByIdUseCase.create(usuarioRepository);
