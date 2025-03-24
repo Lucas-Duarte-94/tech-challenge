@@ -8,7 +8,6 @@ import br.com.techchallenge.fiap.techchallenge.mocks.InternalMock;
 import br.com.techchallenge.fiap.techchallenge.mocks.InternalMockDto;
 import br.com.techchallenge.fiap.techchallenge.repositories.CardapioRepository;
 import br.com.techchallenge.fiap.techchallenge.repositories.ItemCardapioRepository;
-import br.com.techchallenge.fiap.techchallenge.usecases.funcionamento.GetFuncionamentoUseCase;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;

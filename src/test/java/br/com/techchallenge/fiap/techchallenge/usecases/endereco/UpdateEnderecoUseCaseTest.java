@@ -2,7 +2,6 @@ package br.com.techchallenge.fiap.techchallenge.usecases.endereco;
 
 import br.com.techchallenge.fiap.techchallenge.dtos.UpdateEnderecoDTO;
 import br.com.techchallenge.fiap.techchallenge.entities.Endereco;
-import br.com.techchallenge.fiap.techchallenge.errors.MissingIdForEnderecoException;
 import br.com.techchallenge.fiap.techchallenge.mocks.InternalMockDto;
 import br.com.techchallenge.fiap.techchallenge.repositories.EnderecoRepository;
 import br.com.techchallenge.fiap.techchallenge.mocks.InternalMock;

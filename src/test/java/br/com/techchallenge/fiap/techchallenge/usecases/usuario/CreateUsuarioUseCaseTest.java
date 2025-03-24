@@ -11,14 +11,11 @@ import br.com.techchallenge.fiap.techchallenge.errors.UsuarioAlreadyExistsExcept
 import br.com.techchallenge.fiap.techchallenge.repositories.EnderecoRepository;
 import br.com.techchallenge.fiap.techchallenge.repositories.TipoUsuarioRepository;
 import br.com.techchallenge.fiap.techchallenge.repositories.UsuarioRepository;
-import br.com.techchallenge.fiap.techchallenge.usecases.usuario.CreateUsuarioUseCase;
-import br.com.techchallenge.fiap.techchallenge.usecases.usuario.DeleteUsuarioUseCase;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
-import org.mockito.Mockito;
 import org.mockito.junit.jupiter.MockitoExtension;
 
 import java.util.Optional;

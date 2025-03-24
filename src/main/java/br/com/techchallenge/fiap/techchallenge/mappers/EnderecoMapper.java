@@ -1,11 +1,5 @@
 package br.com.techchallenge.fiap.techchallenge.mappers;
 
-import br.com.techchallenge.fiap.techchallenge.dtos.EnderecoPublicDTO;
-import br.com.techchallenge.fiap.techchallenge.dtos.UsuarioPublicDTO;
-import br.com.techchallenge.fiap.techchallenge.entities.Endereco;
-import br.com.techchallenge.fiap.techchallenge.entities.Usuario;
-import br.com.techchallenge.fiap.techchallenge.repositories.UsuarioRepository;
-
 public class EnderecoMapper {
     /*private UsuarioRepository usuarioRepository;
     private static EnderecoMapper instance;

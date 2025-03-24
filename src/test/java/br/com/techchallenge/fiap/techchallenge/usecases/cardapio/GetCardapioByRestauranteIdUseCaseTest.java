@@ -3,7 +3,6 @@ package br.com.techchallenge.fiap.techchallenge.usecases.cardapio;
 import br.com.techchallenge.fiap.techchallenge.dtos.CardapioResponseDTO;
 import br.com.techchallenge.fiap.techchallenge.entities.Cardapio;
 import br.com.techchallenge.fiap.techchallenge.entities.ItemCardapio;
-import br.com.techchallenge.fiap.techchallenge.entities.Restaurante;
 import br.com.techchallenge.fiap.techchallenge.errors.CardapioNotFoundException;
 import br.com.techchallenge.fiap.techchallenge.mocks.InternalMock;
 import br.com.techchallenge.fiap.techchallenge.repositories.CardapioRepository;

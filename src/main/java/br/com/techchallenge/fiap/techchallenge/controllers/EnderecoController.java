@@ -1,6 +1,5 @@
 package br.com.techchallenge.fiap.techchallenge.controllers;
 
-import br.com.techchallenge.fiap.techchallenge.dtos.CreateEnderecoDTO;
 import br.com.techchallenge.fiap.techchallenge.dtos.UpdateEnderecoDTO;
 import br.com.techchallenge.fiap.techchallenge.entities.Endereco;
 import br.com.techchallenge.fiap.techchallenge.repositories.EnderecoRepository;
@@ -9,7 +8,6 @@ import br.com.techchallenge.fiap.techchallenge.repositories.UsuarioRepository;
 import br.com.techchallenge.fiap.techchallenge.usecases.endereco.*;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -84,19 +82,4 @@ public class EnderecoController {
         return ResponseEntity.noContent().build();
     }
 
-    @Operation(
-            description = "Rota para criação de endereco",
-            summary = "Criação de endereco"
-    )
-    @PostMapping
-    public ResponseEntity<Endereco> createEndereco(
-            @RequestBody CreateEnderecoDTO request
-    ) {
-        var usecase = CreateEnderecoUseCase.create(enderecoRepository);
-        var endereco = usecase.execute(request);
-
-        var status = HttpStatus.CREATED;
-
-        return ResponseEntity.status(status.value()).body(endereco);
-    }
 }

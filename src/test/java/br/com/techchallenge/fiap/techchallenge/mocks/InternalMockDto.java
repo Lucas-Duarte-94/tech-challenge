@@ -5,8 +5,16 @@ import br.com.techchallenge.fiap.techchallenge.dtos.CreateEnderecoDTO;
 import br.com.techchallenge.fiap.techchallenge.dtos.CreateFuncionamentoDTO;
 import br.com.techchallenge.fiap.techchallenge.dtos.CreateItemCardapioDTO;
 import br.com.techchallenge.fiap.techchallenge.dtos.CreateRestauranteDTO;
+import br.com.techchallenge.fiap.techchallenge.dtos.CreateUsuarioDTO;
+import br.com.techchallenge.fiap.techchallenge.dtos.DeleteRestauranteDTO;
 import br.com.techchallenge.fiap.techchallenge.dtos.UpdateEnderecoDTO;
 import br.com.techchallenge.fiap.techchallenge.dtos.UpdateFuncionamentoDTO;
+import br.com.techchallenge.fiap.techchallenge.dtos.UpdateItemCardapioDTO;
+import br.com.techchallenge.fiap.techchallenge.dtos.UpdateRestauranteRequestDTO;
+import br.com.techchallenge.fiap.techchallenge.dtos.UserChangePasswordRequestDTO;
+import br.com.techchallenge.fiap.techchallenge.dtos.UserLoginRequestDTO;
+import br.com.techchallenge.fiap.techchallenge.dtos.UserUpdateRequestDTO;
+import br.com.techchallenge.fiap.techchallenge.enums.TipoUsuarioEnum;
 
 import java.math.BigDecimal;
 import java.time.DayOfWeek;
@@ -61,16 +69,16 @@ public class InternalMockDto {
                 new BigDecimal("29.90"),
                 "url_da_foto_da_pizza.jpg",
                 true,
-                1L
+                3L
         );
     }
 
-    public static CreateRestauranteDTO getCreateDTO() {
+    public static CreateRestauranteDTO getCreateRestauranteDTO() {
         return new CreateRestauranteDTO(
                 "Restaurante Saboroso",
                 "Italiana",
                getEnderecoDto(),
-                1L
+                2L
                 );
     }
 
@@ -90,5 +98,88 @@ public class InternalMockDto {
 
     public static CardapioResponseDTO getCardapioResponseDto() {
         return new CardapioResponseDTO(InternalMock.getCardapio(), List.of(InternalMock.getItemCardapio()));
+    }
+
+    public static CreateRestauranteDTO getCreateRestauranteDto() {
+        return new CreateRestauranteDTO("nomeRestaurante", "cozinha", getEnderecoDto(), 1L);
+    }
+
+    public static UpdateRestauranteRequestDTO getUpdateRestauranteRequestDTO() {
+        return new UpdateRestauranteRequestDTO("nomeRestaurante", "cozinha", 2L);
+    }
+
+    public static UpdateItemCardapioDTO getUpdateItemCardapioDTO() {
+        return new UpdateItemCardapioDTO(
+                "Item Atualizado",
+                "Descrição Atualizada",
+                BigDecimal.valueOf(29.99),
+                "url_foto_atualizada",
+                false
+        );
+    }
+
+    public static DeleteRestauranteDTO getDeleteRestauranteDto() {
+        return new DeleteRestauranteDTO(2L);
+    }
+
+    public static CreateUsuarioDTO getCreateUsuarioDTO() {
+        return new CreateUsuarioDTO(
+                "João Silva",
+                "joao.silva@email.com",
+                "joao_pedro",
+                "senhaSegura1234",
+                getCreateEnderecoDTO(),
+                TipoUsuarioEnum.CLIENTE
+        );
+    }
+
+    public static UserLoginRequestDTO getUserLoginRequestDTO() {
+        return new UserLoginRequestDTO(
+                "ana_souza",
+                "senha456"
+        );
+    }
+
+    public static UserUpdateRequestDTO getUserUpdateRequestDTO() {
+        return new UserUpdateRequestDTO(
+                "João Silva Atualizado",
+                "joao.atualizado@email.com"
+        );
+    }
+
+    public static UserChangePasswordRequestDTO getUserChangePasswordRequestDTO() {
+        return new UserChangePasswordRequestDTO(
+                "joao_pedro",
+                "senha789",
+                "novaSenhaForte456"
+        );
+    }
+
+    public static CreateEnderecoDTO getCreateEnderecoDTO() {
+        return new CreateEnderecoDTO(
+                "Rua Exemplo",
+                "123",
+                "Apto 101",
+                "Bairro Teste",
+                "Cidade Teste",
+                "Estado Teste",
+                "12345-678",
+                Optional.of(2L),
+                Optional.empty()
+        );
+    }
+
+    public static UpdateEnderecoDTO getUpdateEnderecoDTO() {
+        return new UpdateEnderecoDTO(
+                "Rua Atualizada",
+                "456",
+                "Casa Fundos",
+                "Bairro Atualizado",
+                "Cidade Atualizada",
+                "Estado Atualizado",
+                "98765-432",
+                2L,
+                Optional.empty()
+        );
     }
 }

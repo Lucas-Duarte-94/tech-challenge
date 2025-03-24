@@ -15,12 +15,14 @@ import br.com.techchallenge.fiap.techchallenge.usecases.tipousuario.UpdateTipoUs
 import br.com.techchallenge.fiap.techchallenge.usecases.usuario.GetAllUsuarioUseCase;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+@Slf4j
 @RestController
 @RequestMapping("/restaurante")
 @Tag(name = "Restaurantes", description = "Controller CRUD de Restaurante")
@@ -101,6 +103,7 @@ public class RestauranteController {
             @PathVariable Long id,
             @RequestBody DeleteRestauranteDTO request
     ) {
+        log.info("O ID Q ENTROU: {}", id);
         var usecase = DeleteRestauranteUseCase.create(restauranteRepository);
         usecase.execute(id, request.usuarioId());
 

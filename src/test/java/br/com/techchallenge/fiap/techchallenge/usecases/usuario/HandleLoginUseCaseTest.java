@@ -6,7 +6,6 @@ import br.com.techchallenge.fiap.techchallenge.entities.Endereco;
 import br.com.techchallenge.fiap.techchallenge.entities.Usuario;
 import br.com.techchallenge.fiap.techchallenge.errors.UserNotFoundException;
 import br.com.techchallenge.fiap.techchallenge.repositories.UsuarioRepository;
-import br.com.techchallenge.fiap.techchallenge.usecases.usuario.HandleLoginUseCase;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;

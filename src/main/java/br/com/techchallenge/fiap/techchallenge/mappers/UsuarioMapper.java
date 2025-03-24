@@ -1,6 +1,5 @@
 package br.com.techchallenge.fiap.techchallenge.mappers;
 
-import br.com.techchallenge.fiap.techchallenge.dtos.UserPublicDTO;
 import br.com.techchallenge.fiap.techchallenge.dtos.UsuarioPublicDTO;
 import br.com.techchallenge.fiap.techchallenge.entities.Usuario;
 

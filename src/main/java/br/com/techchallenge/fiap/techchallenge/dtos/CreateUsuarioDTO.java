@@ -1,6 +1,5 @@
 package br.com.techchallenge.fiap.techchallenge.dtos;
 
-import br.com.techchallenge.fiap.techchallenge.entities.Endereco;
 import br.com.techchallenge.fiap.techchallenge.enums.TipoUsuarioEnum;
 import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.validation.constraints.NotNull;

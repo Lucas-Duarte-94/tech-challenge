@@ -13,7 +13,6 @@ import br.com.techchallenge.fiap.techchallenge.mocks.InternalMockDto;
 import br.com.techchallenge.fiap.techchallenge.repositories.EnderecoRepository;
 import br.com.techchallenge.fiap.techchallenge.repositories.RestauranteRepository;
 import br.com.techchallenge.fiap.techchallenge.repositories.UsuarioRepository;
-import br.com.techchallenge.fiap.techchallenge.usecases.itemcardapio.UpdateItemCardapioUseCase;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
@@ -46,7 +45,7 @@ public class CreateRestauranteUseCaseTest {
     @Test
     void deveCriarRestauranteQuandoUsuarioForValido() {
         Long usuarioId = 1L;
-        CreateRestauranteDTO createDTO = InternalMockDto.getCreateDTO();
+        CreateRestauranteDTO createDTO = InternalMockDto.getCreateRestauranteDTO();
         Usuario usuario = InternalMock.getUsuario();
 
         when(usuarioRepository.findById(usuarioId)).thenReturn(java.util.Optional.of(usuario));

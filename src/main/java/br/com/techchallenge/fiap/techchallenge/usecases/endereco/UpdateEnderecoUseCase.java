@@ -1,6 +1,5 @@
 package br.com.techchallenge.fiap.techchallenge.usecases.endereco;
 
-import br.com.techchallenge.fiap.techchallenge.dtos.CreateEnderecoDTO;
 import br.com.techchallenge.fiap.techchallenge.dtos.UpdateEnderecoDTO;
 import br.com.techchallenge.fiap.techchallenge.entities.Endereco;
 import br.com.techchallenge.fiap.techchallenge.errors.MissingIdForEnderecoException;

@@ -1,14 +1,12 @@
 package br.com.techchallenge.fiap.techchallenge.usecases.usuario;
 
 import br.com.techchallenge.fiap.techchallenge.dtos.UsuarioPublicDTO;
-import br.com.techchallenge.fiap.techchallenge.entities.Usuario;
 import br.com.techchallenge.fiap.techchallenge.mappers.UsuarioMapper;
 import br.com.techchallenge.fiap.techchallenge.repositories.UsuarioRepository;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 
 import java.util.List;
-import java.util.stream.Collectors;
 
 public class GetAllUsuarioUseCase {
     private final UsuarioRepository usuarioRepository;

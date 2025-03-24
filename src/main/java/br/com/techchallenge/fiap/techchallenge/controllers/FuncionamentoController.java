@@ -45,12 +45,12 @@ public class FuncionamentoController {
             description = "Busca do horario de funcionamento pelo id",
             summary = "Busca do horario de funcionamento"
     )
-    @GetMapping("/{restaruranteId}")
+    @GetMapping("restaurante/{restauranteId}")
     public ResponseEntity<List<Funcionamento>> getFuncionamentoByRestauranteId(
-            @PathVariable Long restaruranteId
+            @PathVariable Long restauranteId
     ) {
         var usecase = GetFuncionamentoByRestauranteIdUseCase.create(funcionamentoRepository);
-        return ResponseEntity.ok().body(usecase.execute(restaruranteId));
+        return ResponseEntity.ok().body(usecase.execute(restauranteId));
     }
 
     @Operation(
