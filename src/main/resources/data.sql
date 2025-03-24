@@ -78,7 +78,7 @@ INSERT INTO TB_ENDERECOS (DES_LOGRADOURO, NUM_ENDERECO, DES_COMPLEMENTO, DES_BAI
 INSERT INTO TB_USUARIOS (NOM_COMPLETO, IDE_ENDERECO, DES_EMAIL, NOM_LOGIN, DES_SENHA, IDE_TIPO_USUARIO, DTA_ULT_ALTERACAO) VALUES
 ('Carlos Silva', 1, 'carlos@email.com', 'carlos_silva', 'senha123', 1, NOW()),
 ('Ana Souza', 2, 'ana@email.com', 'ana_souza', 'senha456', 2, NOW()),
-('João Pedro', 3, 'joao@email.com', 'joao_pedro', 'senha789', 3, NOW()),
+('João Pedro', 3, 'joao@email.com', 'joao_pedro_5', 'senha789', 3, NOW()),
 ('João João', 4, 'joao2@email.com', 'joao_pedro_2', 'senha789', 3, NOW());
 
 INSERT INTO TB_RESTAURANTES (NOM_RESTAURANTE, TIPO_COZINHA, IDE_ENDERECO, IDE_USUARIO) VALUES

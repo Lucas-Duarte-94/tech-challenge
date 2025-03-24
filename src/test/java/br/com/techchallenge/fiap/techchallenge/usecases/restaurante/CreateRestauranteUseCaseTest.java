@@ -44,7 +44,7 @@ public class CreateRestauranteUseCaseTest {
     }
     @Test
     void deveCriarRestauranteQuandoUsuarioForValido() {
-        Long usuarioId = 1L;
+        Long usuarioId = 2L;
         CreateRestauranteDTO createDTO = InternalMockDto.getCreateRestauranteDTO();
         Usuario usuario = InternalMock.getUsuario();
 

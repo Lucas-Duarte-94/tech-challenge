@@ -149,7 +149,7 @@ public class InternalMockDto {
 
     public static UserChangePasswordRequestDTO getUserChangePasswordRequestDTO() {
         return new UserChangePasswordRequestDTO(
-                "joao_pedro",
+                "joao_pedro_5",
                 "senha789",
                 "novaSenhaForte456"
         );
