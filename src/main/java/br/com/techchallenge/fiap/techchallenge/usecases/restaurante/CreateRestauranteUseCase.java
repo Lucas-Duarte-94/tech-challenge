@@ -10,9 +10,11 @@ import br.com.techchallenge.fiap.techchallenge.repositories.EnderecoRepository;
 import br.com.techchallenge.fiap.techchallenge.repositories.RestauranteRepository;
 import br.com.techchallenge.fiap.techchallenge.repositories.UsuarioRepository;
 import jakarta.transaction.Transactional;
+import lombok.extern.slf4j.Slf4j;
 
 import static br.com.techchallenge.fiap.techchallenge.enums.TipoUsuarioEnum.DONO_RESTAURANTE;
 
+@Slf4j
 public class CreateRestauranteUseCase {
     private final RestauranteRepository restauranteRepository;
     private final UsuarioRepository usuarioRepository;
@@ -31,6 +33,9 @@ public class CreateRestauranteUseCase {
     @Transactional
     public Restaurante execute(CreateRestauranteDTO restaurante) {
         Usuario usuario = usuarioRepository.findById(restaurante.usuarioId()).orElseThrow(UsuarioNotFoundException::new);
+
+        log.info(restaurante.toString());
+        log.info(usuario.toString());
 
         if(!usuario.getTipoUsuario().getDescricaoTipoUsuario().equals(DONO_RESTAURANTE)) {
             throw new UserDoesNotHavePermissionException();

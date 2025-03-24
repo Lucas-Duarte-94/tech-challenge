@@ -44,4 +44,9 @@ public class GlobalExceptionController {
     public ResponseEntity<String> handleUserDoesNotHavePermissionException(UserDoesNotHavePermissionException ex) {
         return ResponseEntity.status(HttpStatus.NOT_FOUND).body(ex.getMessage());
     }
+
+    @ExceptionHandler(RestauranteNotFoundException.class)
+    public ResponseEntity<String> handleRestauranteNotFoundException(RestauranteNotFoundException ex) {
+        return ResponseEntity.status(HttpStatus.NOT_FOUND).body(ex.getMessage());
+    }
 }
