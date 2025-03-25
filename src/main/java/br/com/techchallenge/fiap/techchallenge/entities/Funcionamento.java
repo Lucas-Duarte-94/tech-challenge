@@ -1,6 +1,7 @@
 package br.com.techchallenge.fiap.techchallenge.entities;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -36,6 +37,7 @@ public class Funcionamento {
     private LocalTime horaFechamento;
 
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @JsonIgnore
     @JoinColumn(name = "IDE_RESTAURANTE", nullable = false)
     private Restaurante restaurante;
 

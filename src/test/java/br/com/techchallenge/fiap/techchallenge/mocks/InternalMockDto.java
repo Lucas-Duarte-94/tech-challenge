@@ -69,7 +69,7 @@ public class InternalMockDto {
                 new BigDecimal("29.90"),
                 "url_da_foto_da_pizza.jpg",
                 true,
-                3L
+                2L
         );
     }
 

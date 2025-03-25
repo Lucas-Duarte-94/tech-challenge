@@ -33,8 +33,8 @@ public class UserController {
     )
     @GetMapping
     public ResponseEntity<List<UsuarioPublicDTO>> getUsers(
-            @RequestParam("page") int page,
-            @RequestParam("size") int size
+            @RequestParam(defaultValue = "0") int page,
+            @RequestParam(defaultValue = "10") int size
     ) {
         var usecase = GetAllUsuarioUseCase.create(usuarioRepository);
         List<UsuarioPublicDTO> users = usecase.execute(size, page);

@@ -64,9 +64,9 @@ CREATE TABLE IF NOT EXISTS TB_FUNCIONAMENTO (
 );
 
 INSERT INTO TB_TIPO_USUARIOS (DES_TIPO_USUARIO) VALUES
-                                                    ('CLIENTE'),
-                                                    ('DONO_RESTAURANTE'),
-                                                    ('ADMIN');
+    ('CLIENTE'),
+    ('DONO_RESTAURANTE'),
+    ('ADMIN');
 
 INSERT INTO TB_ENDERECOS (DES_LOGRADOURO, NUM_ENDERECO, DES_COMPLEMENTO, DES_BAIRRO, DES_CIDADE, DES_ESTADO, NUM_CEP) VALUES
     ('Rua das Flores', '123', 'Apto 101', 'Centro', 'São Paulo', 'SP', '01000-000'),
